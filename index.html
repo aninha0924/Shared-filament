@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Diário de Desenvolvimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="header-left">
+                <div class="camera-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                </div>
+                <div>
+                    <h1>DevLog</h1>
+                    <p class="subtitle">Acompanhe a evolução do projeto</p>
+                </div>
+            </div>
+            <button class="btn-primary" id="btnNovaPostagem">
+                <span>+ Nova Foto</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="photo-count" id="contadorFotos">0 publicações</div>
+
+        <div class="photo-gallery" id="galeriaFotos"></div>
+
+        <div class="empty-state" id="estadoVazio">
+            <div class="empty-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <h2>Nenhuma foto ainda</h2>
+            <p>Comece a registrar a evolução do seu trabalho clicando no botão acima.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 - Diário de Desenvolvimento Profissional</p>
+    </footer>
+
+    <div class="modal" id="modalPostagem">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h2>Nova Publicação</h2>
+                <p class="modal-subtitle">Compartilhe o progresso de hoje</p>
+            </div>
+            <div class="modal-body">
+                <form id="formCadastro">
+                    <div class="form-group">
+                        <label for="inputTitulo">Título da Etapa</label>
+                        <input type="text" id="inputTitulo" placeholder="Ex: Modelagem da fachada, Ajuste de bugs..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputURL">Link da Imagem (URL)</label>
+                        <input type="url" id="inputURL" placeholder="Cole o link de uma imagem da internet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescricao">O que foi feito nessa etapa?</label>
+                        <textarea id="inputDescricao" rows="4" placeholder="Descreva os desafios e o que você desenvolveu hoje..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="btnCancelarPost">Cancelar</button>
+                        <button type="submit" class="btn-primary">Publicar no Feed</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalVisualizacao">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close">&times;</button>
+            <div class="modal-wrapper">
+                <div class="modal-header">
+                    <h2 id="viewTitulo">Título da Foto</h2>
+                    <span class="modal-date" id="viewData">Postado em: --/--/----</span>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Foto expandida" class="modal-image" id="viewImagem">
+                    <p class="modal-description" id="viewDescricao">Descrição detalhada do processo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script href="app.js" src="app.js"></script>
+</body>
+</html>
